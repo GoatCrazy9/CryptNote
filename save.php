@@ -13,7 +13,7 @@
  *  4. An auto-generated ID is returned to retrieve the note later.
  * 
  * License: GNU GPLv3
- * (c) 2025 GoatCrazy09
+ * (c) 2025 GoatCrazy9
  */
 
 declare(strict_types=1);
