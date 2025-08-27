@@ -9,7 +9,11 @@ The server only stores encrypted text and has **zero knowledge** of the original
 - ⏳ **Expiration** — pastes can expire automatically after a defined time.  
 - 📜 **Clean UI** — simple, responsive design powered by Tailwind CSS.  
 - 🚫 **Server Has No Knowledge** — only encrypted data is stored on the server.  
-- ⚡ **Lightweight & Fast** — uses PHP + flat JSON files (no database required).  
+- ⚡ **Lightweight & Fast** — uses PHP + flat JSON files (no database required).
+
+## 📸 Screenshot
+
+<img width="748" height="519" alt="image" src="https://github.com/user-attachments/assets/918b826b-12b9-4630-a115-dbe4abc792b4" />
 
 ## 🚀 How it works
 1. User writes a note in the browser.  
