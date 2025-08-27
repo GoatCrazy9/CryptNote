@@ -1,0 +1,10 @@
+# .htaccess
+# Prevent directory listing and direct access to JSON files
+
+# Disable directory index listing (no browsing of folders)
+Options -Indexes
+
+# Deny access to all .json files
+<Files "*.json">
+    Require all denied
+</Files>

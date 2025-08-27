@@ -1,0 +1,95 @@
+<!--
+CryptNote - Secure and Minimalist Encrypted Pastebin
+Copyright (C) 2025 GoatCrazy09
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details:
+https://www.gnu.org/licenses/gpl-3.0.txt
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CryptNote</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta name="description" content="CryptNote - Secure and Minimalist Encrypted Pastebin. Create and share encrypted notes with end-to-end AES-256 encryption.">
+</head>
+
+<body class="min-h-screen bg-gray-50 flex items-start justify-center py-12 bg-[#FAF9F6] font-[Poppins]">
+  <main class="w-full max-w-3xl px-6">
+    <div class="bg-white border border-gray-200 rounded-2xl shadow-sm p-6">
+      <header class="mb-4">
+        <h1 class="text-2xl font-semibold text-gray-900">CryptNote <span class="text-indigo-600">🔐</span></h1>
+        <p class="text-sm text-gray-500 mt-1">
+          Share encrypted notes directly in your browser.  
+          The key never reaches the server (it lives in the <code class="font-mono">#fragment</code>).
+        </p>
+      </header>
+
+      <section class="space-y-4">
+        <label class="block">
+          <span class="text-sm text-gray-700 font-medium">Content</span>
+          <textarea id="content"
+            class="mt-1 block w-full h-44 rounded-lg border border-gray-200 bg-gray-50 p-3 text-sm placeholder-gray-400 resize-vertical focus:outline-none focus:ring-2 focus:ring-indigo-200"
+            placeholder="Write or paste your text here..."></textarea>
+        </label>
+
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+          <select id="expire" class="rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm">
+            <option value="3600">Expires in 1 hour</option>
+            <option value="86400" selected>Expires in 1 day</option>
+            <option value="604800">Expires in 7 days</option>
+            <option value="0">No expiration</option>
+          </select>
+
+          <div class="flex gap-2 ml-auto">
+            <button id="btnClear"
+              class="px-4 py-2 rounded-lg border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">Clear</button>
+            <button id="btnCreate"
+              class="px-4 py-2 rounded-lg bg-indigo-600 text-white text-sm hover:bg-indigo-700 focus:outline-none">
+              Create Encrypted Link
+            </button>
+          </div>
+        </div>
+
+        <div id="share" class="hidden mt-4 border-t pt-4">
+          <h3 class="text-sm font-medium text-gray-800">Shareable Link</h3>
+          <p class="text-xs text-gray-500 mt-1">
+            The <code class="font-mono">#fragment</code> contains the encryption key — share the full link.
+          </p>
+          <div class="mt-2 flex gap-2">
+            <input id="sharelink" type="text" readonly
+              class="flex-1 rounded-lg border border-gray-200 px-3 py-2 text-sm font-mono bg-gray-50" />
+            <button id="btnCopy" class="px-3 py-2 rounded-lg bg-gray-800 text-white text-sm">Copy</button>
+          </div>
+        </div>
+
+        <div id="viewer" class="hidden mt-4 border-t pt-4">
+          <h3 class="text-sm font-medium text-gray-800">Decrypted Content</h3>
+          <textarea id="decrypted" readonly
+            class="mt-2 block w-full h-40 rounded-lg border border-gray-200 bg-gray-50 p-3 text-sm font-mono"></textarea>
+        </div>
+
+        <p class="text-xs text-gray-400 mt-4">CryptNote - The server will never know</p>
+      </section>
+    </div>
+
+    <footer class="text-center text-xs text-gray-400 mt-6">
+      🔐 CryptNote is a minimalist and open-source online pastebin service for secure notes,  
+      where the server never has access to the stored content.  
+      All data is encrypted and decrypted directly in the browser using AES-256, ensuring absolute privacy and confidentiality.
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
